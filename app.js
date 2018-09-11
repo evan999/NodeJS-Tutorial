@@ -1,6 +1,69 @@
-// Function that calls another function
+var fs = require('fs');
 
+fs.readFile('readme.txt', 'utf8', function(err, data){
+    console.log(data);
+});
+
+
+console.log('test');
+
+/*
+var readMe = fs.readFileSync('readme.txt', 'utf8'); //filename, encoding
+fs.writeFileSync('writeMe.txt', readMe);
+*/
+
+
+
+//console.log(readMe);
+
+
+
+//code
+
+
+
+
+var events = require('events');
+var util = require('util');
+
+var Person = function(name){
+    this.name = name;
+};
+
+util.inherits(Person, events.EventEmitter);
+
+var james = new Person('james');
+var mary = new Person('mary');
+var ryu = new Person('ryu');
+var people = [james, mary, ryu];
+
+people.forEach(function(person){
+   person.on('speak', function(msg){
+       console.log(person.name + ' said: ' + msg);
+   }); 
+});
+
+james.emit('speak', 'hey dudes');
+ryu.emit('speak', 'I want a curry');
+
+
+var myEmitter = new events.EventEmitter();
+
+myEmitter.on('someEvent', function(msg){
+    console.log(msg);
+});
+
+myEmitter.emit('someEvent', 'the event was emitted');
+
+/*
+
+element.on('click', function(){
+    
+});
+*/
 var stuff = require('./stuff');
+
+
 
 console.log(stuff.counter(['shaun', 'crystal', 'ryu']));
 console.log(stuff.adder(5,6));
