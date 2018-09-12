@@ -1,11 +1,34 @@
 var fs = require('fs');
 
-fs.readFile('readme.txt', 'utf8', function(err, data){
-    console.log(data);
+// fs.mkdirSync('stuff');
+
+// fs.rmdirSync('stuf');
+
+// fs.rmdir('stuff');
+
+fs.unlink('./stuff/writeMe.txt', function(){
+    fs.rmdir('stuff');
 });
 
+/*
+fs.mkdir('stuff', function(){
+    fs.readFile('readme.txt', 'utf8', function(err, data){
+        fs.writeFile('./stuff/writeMe.txt');
+    });
+});
+*/
 
-console.log('test');
+/*
+fs.readFile('readme.txt', 'utf8', function(err, data){
+    // console.log(data);
+    fs.writeFile('writeme.txt', data);
+});
+*/
+
+// fs.unlink('writeme.txt');
+
+
+// console.log('test');
 
 /*
 var readMe = fs.readFileSync('readme.txt', 'utf8'); //filename, encoding
@@ -20,8 +43,7 @@ fs.writeFileSync('writeMe.txt', readMe);
 
 //code
 
-
-
+/*
 
 var events = require('events');
 var util = require('util');
@@ -61,6 +83,8 @@ element.on('click', function(){
     
 });
 */
+
+/*
 var stuff = require('./stuff');
 
 
@@ -82,7 +106,7 @@ sayHi();
 
 */
 // function expression
-
+/*
 var sayBye = function(){
   console.log('bye');
 };
@@ -90,7 +114,7 @@ var sayBye = function(){
 callFunction(sayBye);
 
 
-
+*/
 
 // console.log(__dirname);
 // console.log(__filename);
@@ -111,3 +135,4 @@ setTimeout(function(){
     console.log('3 seconds have passed');
 }, 3000);
 */
+
