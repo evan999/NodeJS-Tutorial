@@ -5,7 +5,14 @@ var fs = require('fs');
 
 var server = http.createServer(function(req, res){
     console.log('request was made: ' + req.url);
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end('feed me popcorn');
+    var myObj = {
+        name: 'Ryu',
+        job: 'Ninja',
+        age: 29
+    };
+    res.end(JSON.stringify(myObj));
     var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
     myReadStream.pipe(res); 
 });
