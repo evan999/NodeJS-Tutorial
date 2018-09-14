@@ -5,12 +5,14 @@ var app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+    res.render('index');
+    // res.sendFile(__dirname + '/index.html');
     // res.send('this is the home page');
 });
 
 app.get('/contact', function(req, res){
-    res.sendFile(__dirname + '/contact.html');
+     res.render('contact');
+     //res.sendFile(__dirname + '/contact.html');
    // res.send('this is the contact page') 
 });
 
