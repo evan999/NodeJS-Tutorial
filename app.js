@@ -1,3 +1,30 @@
+var express = require('express');
+
+var app = express();
+
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
+    // res.send('this is the home page');
+});
+
+app.get('/contact', function(req, res){
+    res.sendFile(__dirname + '/contact.html');
+   // res.send('this is the contact page') 
+});
+
+app.get('/profile/:name', function(req, res){
+   var data = {age: 29, job: 'ninja', hobbies: ['eating', 'fighting', 'fishing']};
+   res.render('profile', {person: req.params.name, data: data});   
+   // res.send('You requested to see a profile with the name of ' + req.params.name);    
+});
+
+app.listen(process.env.port);
+
+
+
+/*
 var http = require('http');
 var fs = require('fs');
 
@@ -22,6 +49,7 @@ var server = http.createServer(function(req, res){
         fs.createReadStream(__dirname + '/404.html').pipe(res);
     }
 });
+*/
     /*
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('feed me popcorn');
@@ -39,8 +67,8 @@ var server = http.createServer(function(req, res){
     myReadStream.pipe(res); 
     */
 
-server.listen(process.env.PORT, process.env.IP);
-console.log('yo dawgs, now listening to port');
+// server.listen(process.env.PORT, process.env.IP);
+// console.log('yo dawgs, now listening to port');
 
 
 /*
