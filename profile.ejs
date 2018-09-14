@@ -14,15 +14,39 @@
                 letter-spacing: 2px;
                 text-align: center;
             }
+<<<<<<< HEAD
             p{
+=======
+            h2{
+                font-size: 30px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-align: center;
+            }
+            p, li{
+>>>>>>> set-3
                 font-size: 16px;
                 text-align: center;
             }
         </style>
     </head>
     <body>
+<<<<<<< HEAD
         <h1>Welcome to the profile of <%= person %></h1>
         <p><strong>Age: </strong><%= data.age %></p>
         <p><strong>Job: </strong><%= data.job %></p>
+=======
+        <% include partials/nav.ejs %>
+        <h1>Welcome to the profile of <%= person %></h1>
+        <p><strong>Age: </strong><%= data.age %></p>
+        <p><strong>Job: </strong><%= data.job %></p>
+        <h2>Hobbies</h2>
+        <ul>
+            <% data.hobbies.forEach(function(item){ %>
+                <li><%= item %></li>
+            <% }); %>
+            
+        </ul>
+>>>>>>> set-3
     </body>
 </html>

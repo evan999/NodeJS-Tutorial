@@ -1,4 +1,5 @@
 var express = require('express');
+<<<<<<< HEAD
 
 var app = express();
 
@@ -27,8 +28,12 @@ app.listen(process.env.port);
 /*
 var http = require('http');
 var fs = require('fs');
+=======
+>>>>>>> set-3
 
+var app = express();
 
+<<<<<<< HEAD
 var server = http.createServer(function(req, res){
     console.log('request was made: ' + req.url);
     if(req.url === '/home' || req.url === '/'){
@@ -95,147 +100,27 @@ server.listen(3000, '127.0.0.1');
 console.log('yo dawgs, now listening to port 3000');
 */
 
+=======
+app.set('view engine', 'ejs');
+>>>>>>> set-3
 
-
-/*
-
-var fs = require('fs');
-
-// fs.mkdirSync('stuff');
-
-// fs.rmdirSync('stuf');
-
-// fs.rmdir('stuff');
-
-fs.unlink('./stuff/writeMe.txt', function(){
-    fs.rmdir('stuff');
+app.get('/', function(req, res){
+    res.render('index');
+    // res.sendFile(__dirname + '/index.html');
+    // res.send('this is the home page');
 });
 
-*/
-
-/*
-fs.mkdir('stuff', function(){
-    fs.readFile('readme.txt', 'utf8', function(err, data){
-        fs.writeFile('./stuff/writeMe.txt');
-    });
-});
-*/
-
-/*
-fs.readFile('readme.txt', 'utf8', function(err, data){
-    // console.log(data);
-    fs.writeFile('writeme.txt', data);
-});
-*/
-
-// fs.unlink('writeme.txt');
-
-
-// console.log('test');
-
-/*
-var readMe = fs.readFileSync('readme.txt', 'utf8'); //filename, encoding
-fs.writeFileSync('writeMe.txt', readMe);
-*/
-
-
-
-//console.log(readMe);
-
-
-
-//code
-
-/*
-
-var events = require('events');
-var util = require('util');
-
-var Person = function(name){
-    this.name = name;
-};
-
-util.inherits(Person, events.EventEmitter);
-
-var james = new Person('james');
-var mary = new Person('mary');
-var ryu = new Person('ryu');
-var people = [james, mary, ryu];
-
-people.forEach(function(person){
-   person.on('speak', function(msg){
-       console.log(person.name + ' said: ' + msg);
-   }); 
+app.get('/contact', function(req, res){
+     res.render('contact');
+     //res.sendFile(__dirname + '/contact.html');
+   // res.send('this is the contact page') 
 });
 
-james.emit('speak', 'hey dudes');
-ryu.emit('speak', 'I want a curry');
-
-
-var myEmitter = new events.EventEmitter();
-
-myEmitter.on('someEvent', function(msg){
-    console.log(msg);
+app.get('/profile/:name', function(req, res){
+   var data = {age: 29, job: 'ninja', hobbies: ['eating', 'fighting', 'fishing']};
+   res.render('profile', {person: req.params.name, data: data});   
+   // res.send('You requested to see a profile with the name of ' + req.params.name);    
 });
 
-myEmitter.emit('someEvent', 'the event was emitted');
-
-/*
-
-element.on('click', function(){
-    
-});
-*/
-
-/*
-var stuff = require('./stuff');
-
-
-
-console.log(stuff.counter(['shaun', 'crystal', 'ryu']));
-console.log(stuff.adder(5,6));
-console.log(stuff.adder(stuff.pi, 5));
-
-function callFunction(fun){
-    fun();
-}
-
-/*
-function sayHi(){
-    console.log('hi');
-}
-
-sayHi();
-
-*/
-// function expression
-/*
-var sayBye = function(){
-  console.log('bye');
-};
-
-callFunction(sayBye);
-
-
-*/
-
-// console.log(__dirname);
-// console.log(__filename);
-
-/*
-var time = 0;
-
-var timer = setInterval(function(){
-    time += 2;
-    console.log(time + ' seconds have passed');
-    if(time > 5){
-        clearInterval(timer);
-    }
-}, 2000);
-
-/*
-setTimeout(function(){
-    console.log('3 seconds have passed');
-}, 3000);
-*/
+app.listen(process.env.port);
 
