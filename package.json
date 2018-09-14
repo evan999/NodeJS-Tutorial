@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-tutorial",
+  "version": "3.10.10",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.16.3",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
+  },
+  "description": "a little test app",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evan999/NodeJS-Tutorial.git"
+  },
+  "keywords": [
+    "fun",
+    "ninjas"
+  ],
+  "author": "Evan Meshberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evan999/NodeJS-Tutorial/issues"
+  },
+  "homepage": "https://github.com/evan999/NodeJS-Tutorial#readme"
+}
